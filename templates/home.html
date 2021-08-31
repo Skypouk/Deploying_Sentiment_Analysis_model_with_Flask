@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2 style="text-align: center"> Twitter Sentiment Analysis </h2>
+
+<div class="search-container" style="text-align: center">
+    <form action = "http://localhost:5000/" method = "post">
+        <input type="text" placeholder="Search" name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+
+<div id="table" class="left"></div>
+<div id="pie" class="right"></div>
+
+
+</body>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+  var table = {{tableJSON | safe}};
+  var pie = {{pieJSON | safe}}
+  Plotly.plot("table",table,{});
+  Plotly.plot("pie",pie,{});
+</script>
+</html>
+
